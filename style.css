@@ -1,0 +1,69 @@
+/* Container for the project blocks */
+.container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  gap: 20px;
+}
+
+/* Each project block (colored rectangle) */
+.project {
+  /* position: relative; */
+  width: 75px;
+  height: 300px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin: 0;
+}
+
+        .project.pinpoint {
+              background-color: #bb9c82;
+        }
+        .project.oldcastillo{
+              background-color: #de9589;
+        }
+
+/* When hovered, the project translates downward */
+.project:hover {
+  transform: translateY(50px);
+}
+
+/* The overlay text rotates so that it reads vertically */
+.project-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+  font-weight: 700;
+  font-size: x-large;
+  transform: rotate(-90deg);
+  white-space: nowrap;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+.project:hover .project-overlay {
+  opacity: 1;
+}
+
+/* Project details panels animate between two states */
+.project-details {
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Down state: details panel is offset (50px down) and invisible */
+.project-details.down {
+  transform: translateY(50px);
+  opacity: 0;
+}
+
+/* Up state: panel in place and visible */
+.project-details.up {
+  transform: translateY(0);
+  opacity: 1;
+}
