@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — BredCrum</title>
+
+  <!-- NOTE: relative paths so it works whether opened via file:// or a local server -->
+  <link rel="stylesheet" href="./stylesheets/tokens.css">
+  <link rel="stylesheet" href="./stylesheets/style.css">
+</head>
+
+<body>
+<!-- Header / Nav (reuses your existing styles) -->
+<header class="site-header">
+  <div class="container nav-bar">
+    <a class="brand" href="./index.html" aria-label="BredCrum Home">
+      <img src="./assets/logo.png" alt="BredCrum logo">
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <a href="./index.html#work">work</a>
+      <a href="./about.html" aria-current="page">about</a>
+      <a href="./contact.html">contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- About “hero” -->
+  <section class="about-hero">
+    <!-- Hill: Photo -->
+    <div class="about-left">
+      <figure class="about-photo">
+        <img src="./assets/about-photo.jpg" alt="Seth Hulin" />
+      </figure>
+    </div>
+
+    <!-- Valley: Bio -->
+    <div class="about-right">
+      <h1>Hi, I’m <span class="accent">Seth</span>.</h1>
+      <p class="muted" style="margin-bottom: var(--sm-space);">
+        Designer–developer focused on clear systems, tidy grids, and
+        thoughtful interactions. I like building foundations first—tokens,
+        layout, typography—so the rest of the work feels inevitable.
+      </p>
+      <p>
+        I’ve produced for news and sports, led visual design, and built
+        brand systems and interfaces that hold up in the real world.
+        My approach: start simple, iterate in tiny pieces, and keep the
+        craft visible without getting in the way of the message.
+      </p>
+    </div>
+  </section>
+</main>
+</body>
+</html>

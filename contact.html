@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — BredCrum</title>
+
+  <!-- Relative paths so it works via file:// or a local server -->
+  <link rel="stylesheet" href="./stylesheets/tokens.css" />
+  <link rel="stylesheet" href="./stylesheets/style.css" />
+</head>
+
+<body>
+<!-- Shared header / nav -->
+<header class="site-header">
+  <div class="container nav-bar">
+    <a class="brand" href="./index.html" aria-label="BredCrum Home">
+      <img src="./assets/logo.png" alt="BredCrum logo">
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <a href="./index.html#work">work</a>
+      <a href="./about.html">about</a>
+      <a href="./contact.html" aria-current="page">contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="contact-wrap">
+  <!-- Big centered logo -->
+  <div class="brand-hero">
+    <img src="./assets/logo.png" alt="BredCrum" />
+  </div>
+
+  <!-- Neumorphic form -->
+  <section class="contact-card" aria-labelledby="contact-title">
+    <h1 id="contact-title" class="contact-title">Contact Form</h1>
+
+    <form id="contactForm" action="https://formspree.io/f/xyzbbagb" method="POST" novalidate>
+      <!-- Optional spam honeypot -->
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
+      <!-- Optional subject -->
+      <input type="hidden" name="_subject" value="New brief from BredCrum site" />
+      <!-- Optional redirect fallback (if JS is off) -->
+      <input type="hidden" name="_next" value="/contact.html?sent=1" />
+      <div class="field">
+        <label for="name">Name</label>
+        <input class="input" type="text" id="name" name="name" placeholder="Jane Smith" autocomplete="name" />
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input class="input" type="email" id="email" name="email" placeholder="you@company.com" autocomplete="email" />
+      </div>
+
+      <div class="field">
+        <label for="message">What do you need?</label>
+        <textarea class="textarea" id="message" name="message" placeholder="Logo tidy-up, landing page, case study polish"></textarea>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-primary" type="submit">Send the brief</button>
+        <button class="btn btn-ghost" type="reset">Clear</button>
+      </div>
+    </form>
+    <div id="formNotice" aria-live="polite" style="display:none; margin-top:12px;"></div>
+  </section>
+</main>
+<script src="/scripts/index.js"></script>
+</body>
+</html>

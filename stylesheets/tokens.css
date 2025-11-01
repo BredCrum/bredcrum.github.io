@@ -1,0 +1,56 @@
+:root {
+    /*Colors*/
+    --bg: #EDEFF3;
+    --surface: #F7F9FC;
+    --accent: #F7961D;
+    --text: #263238;
+    --muted: #5F6B74;
+    --accent-arc: #415669;
+    --accent-old-castillo: #E79C92;
+    --accent-critical: #472970;
+    --accent-freshwater: #70A8BC;
+    --accent-pinpoint: #CAA38A;
+    .case-arc            { --switch-accent: var(--accent-arc); }
+    .case-old-castillo   { --switch-accent: var(--accent-old-castillo); }
+    .case-critical       { --switch-accent: var(--accent-critical); }
+    .case-freshwater     { --switch-accent: var(--accent-freshwater); }
+    .case-pinpoint       { --switch-accent: var(--accent-pinpoint); }
+
+    /*Effects*/
+    --ambient-shadow: 0 2px 8px rgba(0,0,0,.08);
+    --elev-1: var(--ambient-shadow), 4px 4px 10px rgba(0,0,0,.12), -4px -4px 10px rgba(255,255,255,.85);
+    --elev-2: var(--ambient-shadow), 8px 8px 18px rgba(0,0,0,.13), -8px -8px 18px rgba(255,255,255,.9);
+    --inset-1: inset 6px 6px 12px rgba(0,0,0,.12), inset -6px -6px 12px rgba(255,255,255,.9);
+
+
+    /*Corners*/
+    --base-radius: 8px;
+    --sm-radius: calc(var(--base-radius)*1.5);
+    --med-radius: calc(var(--base-radius)*2);
+    --lg-radius: calc(var(--base-radius)*3);
+    --pill-radius: 9999px;
+
+    /*Spacing*/
+    --base-space: 4px;
+    --xxsm-space: calc(var(--base-space)*2);
+    --xsm-space: calc(var(--base-space)*3);
+    --sm-space: calc(var(--base-space)*4);
+    --med-space: calc(var(--base-space)*6);
+    --lg-space: calc(var(--base-space)*8);
+    --xl-space: calc(var(--base-space)*12);
+    --xxl-space: calc(var(--base-space)*16);
+    --switch-col: 320px;
+
+    /*Type*/
+    font-size: 16px;
+    --body-copy: 1rem;
+    --header-copy: 2rem;
+    --caption-copy: 1.5rem;
+    --body-lh: 1.5;
+    --header-lh: 1;
+    --caption-lh: 2;
+
+    /*Layout*/
+    --container: 1128px;
+    --gutter: 24px;
+}

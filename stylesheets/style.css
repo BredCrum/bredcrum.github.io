@@ -1,0 +1,516 @@
+/* Base */
+html {scroll-behavior: smooth;}
+html, body { height: 100%; }
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 400 var(--body-copy)/var(--body-lh) system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+/* 12-col container behavior (flex here for the nav) */
+.container {
+    max-width: var(--container);
+    margin-inline: auto;
+    padding-inline: var(--med-space);
+}
+
+/* NAV BAR */
+.site-header { padding-block: var(--sm-space);}
+
+.nav-bar {
+    display: flex;
+    align-items: center;
+    gap: var(--lg-space);
+}
+
+/* Logo */
+.brand img { height: 10vh; display: block; } /* 32 = multiple of 4 */
+
+/* Links */
+.primary-nav {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: var(--lg-space);
+}
+
+.primary-nav a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    padding: var(--xsm-space) var(--sm-space); /* 12 x 16 for touch target */
+    border-radius: var(--pill-radius);
+}
+
+.primary-nav a:hover { color: var(--accent); }
+
+.primary-nav a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px; /* 4px rule */
+}
+
+/* Hero Layout */
+.hero {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--gutter);
+    max-width: var(--container);
+    margin: 0 auto;
+    padding-inline: var(--med-space);
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Left side (intro valley) */
+.hero-left {
+    grid-column: 1 / span 6;
+    background: var(--surface);
+    box-shadow: var(--inset-1); /* valley */
+    border-radius: var(--lg-radius);
+    padding: var(--xl-space);
+}
+
+/* Right side (value hill) */
+.hero-right {
+    grid-column: 8 / span 5;
+    background: var(--surface);
+    box-shadow: var(--elev-2); /* hill */
+    border-radius: var(--lg-radius);
+    padding: var(--xl-space);
+}
+
+/* Text hierarchy */
+.hero h1 {
+    font-size: calc(var(--header-copy) * 1.6);
+    line-height: var(--header-lh);
+    margin: 0 0 var(--med-space);
+}
+
+.hero h1 .accent {
+    color: var(--accent);
+}
+
+.hero p {
+    color: var(--muted);
+    margin: 0 0 var(--lg-space);
+    max-width: 48ch;
+}
+
+/* Neumorphic CTA Button */
+.cta-btn {
+    display: inline-block;
+    background: var(--surface);
+    color: var(--text);
+    font-weight: 500;
+    text-decoration: none;
+    padding: var(--sm-space) var(--lg-space);
+    border-radius: var(--pill-radius);
+    box-shadow: var(--elev-1); /* hill */
+    transition: all 0.2s ease;
+}
+
+.cta-btn:hover {
+    color: var(--accent);
+    box-shadow: var(--elev-2);
+    transform: translateY(-1px);
+}
+
+.cta-btn:active {
+    box-shadow: var(--inset-1); /* pressed valley effect */
+    transform: translateY(1px);
+}
+
+.cta-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+.work-section {
+    display: grid;
+    place-items: center;
+    padding-block: var(--xl-space);
+    margin: 0 auto;
+}
+
+.work-inner {
+    max-width: var(--container);
+    margin-inline: auto;
+    padding-inline: var(--med-space);
+}
+
+.work-heading {
+    font-size: calc(var(--header-copy));
+    line-height: var(--header-lh);
+    margin: 0 0 var(--sm-space);
+    text-align: center;
+}
+
+/* Section frame (you already have .work-section / .work-inner; adding layout only) */
+.work-layout {
+    display: grid;
+    grid-template-columns: var(--switch-col) 50vw var(--switch-col);
+    justify-content: center;         /* centers the entire grid */
+    align-items: center;
+    column-gap: var(--xxl-space);
+    margin-inline: auto;
+    padding-inline: var(--med-space);
+}
+
+/* Left = 3 buttons stacked, Right = 2 buttons stacked */
+.switch-left,
+.switch-right {
+    width: var(--switch-col);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sm-space);
+    align-items: stretch;
+}
+
+/* Bento valley placeholder stays centered in the middle column */
+.work-bento {
+    background: var(--surface);
+    box-shadow: var(--inset-1);         /* valley */
+    border-radius: var(--lg-radius);    /* 24 */
+    padding: var(--xl-space);           /* 48 */
+}
+
+.switch-btn {
+    background: var(--surface);
+    border: none;
+    border-radius: var(--pill-radius);
+    padding: var(--sm-space) var(--lg-space);
+    font-weight: 600;
+    color: var(--text);
+    box-shadow: var(--elev-1);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    width: 100%;
+    position: relative;
+    overflow: visible;
+}
+
+.switch-btn:hover {
+    box-shadow: var(--elev-2);               /* higher elevation on hover */
+}
+
+.switch-btn:active{
+    box-shadow: var(--inset-1);              /* pressed = valley */
+    transform: translateY(1px);
+}
+
+.switch-btn.active{
+    box-shadow: var(--inset-1);              /* pressed = valley */
+    transform: translateY(1px);
+}
+.switch-btn::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -6px;                      /* sit just outside the pill; tweak if needed */
+    width: 60%;
+    height: 3px;
+    background: var(--switch-accent, var(--accent));
+    border-radius: 2px;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    opacity: 0;
+    transition: transform .22s ease, opacity .22s ease;
+}
+
+/* Active = show the line (scale in from center) */
+.switch-btn.active::after,
+.switch-btn[aria-pressed="true"]::after {
+    transform: translateX(-50%) scaleX(1);
+    opacity: 1;
+}
+
+.case-arc.active        { color: var(--accent-arc); }
+.case-old-castillo.active { color: var(--accent-old-castillo); }
+.case-critical.active     { color: var(--accent-critical); }
+.case-freshwater.active   { color: var(--accent-freshwater); }
+.case-pinpoint.active     { color: var(--accent-pinpoint); }
+
+.switch-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+/* Optional active (selected) state */
+.switch-btn.is-active,
+.switch-btn[aria-pressed="true"] {
+    box-shadow: var(--inset-1);
+    color: var(--accent);
+}
+
+/* === Bento grid inside .work-bento === */
+.work-layout {align-items: center;}
+
+/* Bento valley — fills the middle track (which is 50vw) */
+.work-bento {
+    background: var(--surface);
+    box-shadow: var(--inset-1);
+    border-radius: var(--lg-radius);
+    padding: var(--xl-space);
+    width: 100%;
+    justify-self: center;
+}
+
+/* Bento grid: unchanged (keeps your 3:2 look and row sizing) */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: var(--gutter);
+    grid-auto-rows: clamp(72px, 12vw, 112px);
+    width: 100%;
+    aspect-ratio: 3 / 2;
+}
+
+/* Base tile */
+.bento-tile {
+    background: var(--surface);
+    border-radius: var(--lg-radius);
+    overflow: hidden;                   /* crops images nicely */
+}
+
+/* Optional hills (raised tiles) */
+.hill-weak   { box-shadow: var(--elev-1); }
+.hill-strong { box-shadow: var(--elev-2); }
+
+/* Images fill tiles */
+.bento-tile > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.tile-3 > img {
+    object-fit: contain;
+    padding-right: 5rem;
+}
+.project-arc .tile-5 img { object-position: 10% 50%; }
+
+.tile-6 {
+    padding: 1rem;
+    font-size: .75rem;
+}
+
+/* === 7-tile layout (5 rows × 6 cols) === */
+.tile-1 { grid-column: 1 / span 3; grid-row: 1 / span 3; }
+.tile-2 { grid-column: 1 / span 2; grid-row: 4 / span 2; }
+.tile-3 { grid-column: 3 / span 4; grid-row: 4 / span 2; }
+.tile-4 { grid-column: 4 / span 2; grid-row: 1 / span 1; }
+.tile-5 { grid-column: 4 / span 1; grid-row: 2 / span 2; }
+.tile-6 { grid-column: 5 / span 2; grid-row: 2 / span 2; }
+.tile-7 { grid-column: 6 / span 1; grid-row: 1 / span 1; }
+.about-hero{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--gutter);
+    max-width: var(--container);
+    margin-inline: auto;
+    padding-inline: var(--med-space);
+    padding-block: var(--xl-space);
+    align-items: center;
+    min-height: 80svh; /* tall but not forced full-screen */
+}
+
+/* Left = HILL (photo) | Right = VALLEY (bio) */
+.about-left{
+    grid-column: 1 / span 5;              /* cols 1–5 */
+    background: var(--surface);
+    box-shadow: var(--elev-2);            /* hill */
+    border-radius: var(--lg-radius);
+    padding: var(--xl-space);
+    display: grid;
+    place-items: center;
+    overflow: hidden; /* tidy image corners */
+}
+.about-photo{
+    width: 100%;
+    aspect-ratio: 4 / 5;                  /* pleasing portrait ratio */
+    border-radius: var(--med-radius);
+    overflow: hidden;
+}
+.about-photo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+    display: block;
+}
+
+.about-right{
+    grid-column: 7 / span 6;              /* cols 7–12 */
+    background: var(--surface);
+    box-shadow: var(--inset-1);           /* valley */
+    border-radius: var(--lg-radius);
+    padding: var(--xl-space);
+}
+
+.about-right h1{
+    margin: 0 0 var(--sm-space);
+    font-size: calc(var(--header-copy) * 1.6);
+    line-height: var(--header-lh);
+}
+.about-right p{
+    margin: 0;
+    color: var(--text);
+    line-height: var(--body-lh);
+    max-width: 64ch;
+}
+.about-right .muted{
+    color: var(--muted);
+}
+.about-right .accent{
+    color: var(--accent);
+}
+.contact-wrap{
+    max-width: min(920px, calc(var(--container)));
+    margin-inline: auto;
+    padding-inline: var(--med-space);
+    padding-block: clamp(var(--lg-space), 6vh, var(--xxl-space));
+}
+
+/* Big centered logo above the form */
+.brand-hero{
+    display: grid;
+    place-items: center;
+    margin-bottom: var(--lg-space);
+}
+.brand-hero img{
+    width: clamp(160px, 26vw, 320px);
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 8px 20px rgba(0,0,0,.06));
+}
+
+/* Card that contains the form (hill) */
+.contact-card{
+    background: var(--surface);
+    box-shadow: var(--elev-2);
+    border-radius: var(--lg-radius);
+    padding: clamp(var(--lg-space), 4vw, var(--xl-space));
+}
+
+.contact-title{
+    margin: 0 0 var(--lg-space);
+    font-size: calc(var(--header-copy) * 1.4);
+    line-height: var(--header-lh);
+}
+
+/* Fields */
+.field{
+    margin-bottom: var(--med-space);
+}
+.field label{
+    display: block;
+    font-weight: 600;
+    margin-bottom: var(--xsm-space);
+    color: var(--text);
+}
+
+.input,
+.textarea{
+    width: 100%;
+    background: var(--surface);
+    border: none;
+    outline: none;
+    color: var(--text);
+    padding: clamp(12px, 1.8vw, 16px);
+    border-radius: var(--pill-radius);
+    box-shadow: var(--inset-1);     /* valley */
+    transition: box-shadow .2s ease, transform .06s ease;
+}
+.textarea{
+    min-height: 112px;
+    border-radius: var(--med-radius);
+    resize: vertical;
+}
+.input:focus-visible,
+.textarea:focus-visible{
+    box-shadow: var(--inset-1), 0 0 0 2px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+::placeholder{ color: color-mix(in srgb, var(--muted) 70%, #fff 0%); }
+
+/* Actions */
+.actions{
+    display: flex;
+    gap: var(--sm-space);
+    align-items: center;
+    margin-top: var(--sm-space);
+    flex-wrap: wrap;
+}
+
+.btn{
+    appearance: none;
+    border: 0;
+    cursor: pointer;
+    font-weight: 600;
+    padding: var(--sm-space) var(--lg-space);
+    border-radius: var(--pill-radius);
+    background: var(--surface);
+    color: var(--text);
+    box-shadow: var(--elev-1);          /* hill */
+    transition: transform .1s ease, box-shadow .2s ease, opacity .2s ease;
+}
+.btn:hover{ box-shadow: var(--elev-2); }
+.btn:active{ box-shadow: var(--inset-1); transform: translateY(1px); }
+.btn:focus-visible{ outline: 2px solid var(--accent); outline-offset: 4px; }
+
+.btn-primary{
+    color: #fff;
+    background: linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--accent) 96%, #fff 4%),
+            color-mix(in srgb, var(--accent) 78%, #000 22%)
+    );
+}
+.btn-primary:hover{ box-shadow: var(--elev-2); }
+.btn-primary:active{ box-shadow: var(--inset-1); }
+
+.btn-ghost{
+    background: var(--surface);
+    color: var(--muted);
+}
+
+/* Keep header consistent spacing on this page */
+.site-header{ padding-block: var(--sm-space); }
+
+/* RESPONSIVE STACK */
+@media (max-width: 900px){
+    .about-hero{
+        grid-template-columns: 1fr;
+        row-gap: var(--lg-space);
+        min-height: auto;
+    }
+    .about-left,
+    .about-right{
+        grid-column: auto;
+    }
+    /* Put bio first for context, photo second */
+    .about-right{ order: -1; }
+}
+
+/* Small screens: keep shape but allow taller frame */
+@media (max-width: 900px) {
+    .bento-grid { aspect-ratio: auto; min-height: 520px; }
+}
+
+/* Responsive: stack controls above bento on small screens */
+@media (max-width: 900px) {
+    .work-layout {
+        grid-template-columns: 1fr;
+        max-width: var(--container);
+    }
+    .switch-left, .switch-right {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: var(--sm-space);
+        min-width: 0;
+    }
+    .work-bento { order: 3; }
+}
+
