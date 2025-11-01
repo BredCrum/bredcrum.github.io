@@ -479,6 +479,40 @@ body {
 /* Keep header consistent spacing on this page */
 .site-header{ padding-block: var(--sm-space); }
 
+/* RESPONSIVE STACK */
+@media (max-width: 900px){
+    .about-hero{
+        grid-template-columns: 1fr;
+        row-gap: var(--lg-space);
+        min-height: auto;
+    }
+    .about-left,
+    .about-right{
+        grid-column: auto;
+    }
+    /* Put bio first for context, photo second */
+    .about-right{ order: -1; }
+}
+
+/* Small screens: keep shape but allow taller frame */
+@media (max-width: 900px) {
+    .bento-grid { aspect-ratio: auto; min-height: 520px; }
+}
+
+/* Responsive: stack controls above bento on small screens */
+@media (max-width: 900px) {
+    .work-layout {
+        grid-template-columns: 1fr;
+        max-width: var(--container);
+    }
+    .switch-left, .switch-right {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: var(--sm-space);
+        min-width: 0;
+    }
+    .work-bento { order: 3; }
+}
 /* ======= MVP mobile/adaptive stack ======= */
 @media (max-width: 900px) {
 
