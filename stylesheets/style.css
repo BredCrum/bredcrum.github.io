@@ -479,38 +479,83 @@ body {
 /* Keep header consistent spacing on this page */
 .site-header{ padding-block: var(--sm-space); }
 
-/* RESPONSIVE STACK */
-@media (max-width: 900px){
-    .about-hero{
+/* ======= MVP mobile/adaptive stack ======= */
+@media (max-width: 900px) {
+
+    /* HERO: stack cards full width */
+    .hero{
         grid-template-columns: 1fr;
         row-gap: var(--lg-space);
-        min-height: auto;
+        min-height: auto;               /* no forced full-screen on small devices */
+        padding-block: var(--lg-space); /* a little breathing room */
     }
-    .about-left,
-    .about-right{
-        grid-column: auto;
+    .hero-left,
+    .hero-right{
+        grid-column: 1 / -1;            /* both span full width */
     }
-    /* Put bio first for context, photo second */
-    .about-right{ order: -1; }
-}
+    /* (Optional) show intro first, value second */
+    /* .hero-left { order: 1; }  -- order doesn't affect grid, so we leave as DOM order */
 
-/* Small screens: keep shape but allow taller frame */
-@media (max-width: 900px) {
-    .bento-grid { aspect-ratio: auto; min-height: 520px; }
-}
-
-/* Responsive: stack controls above bento on small screens */
-@media (max-width: 900px) {
-    .work-layout {
+    /* WORK LAYOUT: single column — left buttons, right buttons, then bento */
+    .work-layout{
         grid-template-columns: 1fr;
-        max-width: var(--container);
+        justify-items: stretch;
+        row-gap: var(--lg-space);
+        column-gap: 0;
+        padding-inline: var(--med-space);
     }
-    .switch-left, .switch-right {
-        flex-direction: row;
-        flex-wrap: wrap;
+
+    .switch-left,
+    .switch-right{
+        width: 100%;
+        max-width: 560px;               /* keep pills readable */
+        margin-inline: auto;
+        flex-direction: column;         /* already column, make it explicit */
         gap: var(--sm-space);
-        min-width: 0;
+        align-items: stretch;
     }
-    .work-bento { order: 3; }
+
+    .work-bento{
+        order: 3;                        /* appears after both stacks of buttons */
+        width: 100%;
+        padding: var(--lg-space);
+    }
+
+    /* BENTO GRID: collapse to one column and let each tile stack */
+    .bento-grid{
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+        aspect-ratio: auto;             /* allow natural height */
+        gap: var(--sm-space);
+    }
+
+    /* Every tile spans full width in natural order */
+    .tile-1,
+    .tile-2,
+    .tile-3,
+    .tile-4,
+    .tile-5,
+    .tile-6,
+    .tile-7{
+        grid-column: 1 / -1 !important;
+        grid-row: auto !important;
+    }
+
+    /* Reasonable minimum heights so images/text feel balanced */
+    .bento-tile{
+        min-height: clamp(160px, 42vw, 280px);
+    }
+
+    /* Text tile a bit larger for legibility on mobile */
+    .tile-6{
+        font-size: clamp(.9rem, 2.7vw, 1rem);
+        padding: var(--sm-space);
+    }
+
+    /* ARC logo tile: ensure it fits inside single-column layout too */
+    .tile-3 > img{
+        padding-right: 0;
+        object-fit: contain;
+    }
 }
 
