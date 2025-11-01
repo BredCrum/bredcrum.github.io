@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BredCrum</title>
+    <link rel="stylesheet" href="/stylesheets/tokens.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="site-header">
+    <div class="container nav-bar">
+        <a class="brand" href="./index.html">
+            <img src="/assets/logo.png" alt="BredCrum logo">
+        </a>
+        <nav class="primary-nav" aria-label="Primary">
+            <a href="#work">work</a>
+            <a href="./about.html">about</a>
+            <a href="./contact.html">contact</a>
+        </nav>
+    </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+    <div class="hero-left">
+        <h1>Hi, I’m Seth and this is <span class="accent">BredCrum</span>.</h1>
+        <p>I design calm, systematic interfaces and the workflows behind them — clean tokens, tidy grids, and the right amount of personality.</p>
+    </div>
+
+    <div class="hero-right">
+        <h2>Value, not vibes.</h2>
+        <p>I help small teams ship sharper brands and faster UIs by pairing design systems with practical engineering — no drama, just delivery.</p>
+        <a href="#work" class="cta-btn">View Work</a>
+    </div>
+</section>
+
+<!-- ================= WORK SECTION ================= -->
+<section id="work" class="work-section">
+    <div class="container work-inner">
+        <h2 class="work-heading">Selected Work</h2>
+        <div class="work-layout">
+            <!-- Left column: 3 buttons -->
+            <div class="switch-left">
+                <button class="switch-btn case-old-castillo active" data-project="old-castillo">Old Castillo</button>
+                <button class="switch-btn case-arc" data-project="arc">Arc</button>
+                <button class="switch-btn case-pinpoint" data-project="pinpoint">PinPoint</button>
+            </div>
+
+            <!-- Center column: bento valley -->
+            <div class="work-bento">
+                <div class="bento-grid">
+                    <div class="bento-tile tile-1">
+                    </div>
+
+                    <div class="bento-tile tile-2">
+                    </div>
+
+                    <div class="bento-tile tile-3 hill-strong">
+                    </div>
+
+                    <div class="bento-tile tile-4">
+                    </div>
+
+                    <div class="bento-tile tile-5">
+                    </div>
+
+                    <div class="bento-tile tile-6 hill-weak">
+                        <p></p>
+                    </div>
+
+                    <div class="bento-tile tile-7">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right column: 2 buttons -->
+            <div class="switch-right">
+                <button class="switch-btn case-critical" data-project="critical">Critical</button>
+                <button class="switch-btn case-freshwater" data-project="freshwater">Freshwater</button>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="/scripts/index.js"></script>
+</body>
+</html>
