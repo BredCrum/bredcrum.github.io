@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Services — BredCrum</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stylesheets/tokens.css" />
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <!-- If you have a shared main stylesheet, include it before this block -->
+    <style>
+        /* Base */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font: 400 var(--body-copy)/var(--body-lh)
+            system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        }
+
+        .container {
+            max-width: var(--container);
+            margin-inline: auto;
+            padding-inline: var(--med-space);
+        }
+
+        /* Header / Nav (same language as other pages) */
+        .site-header {
+            padding-block: var(--sm-space);
+        }
+
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            gap: var(--lg-space);
+        }
+
+        .primary-nav {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: var(--lg-space);
+        }
+
+        .primary-nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            padding: var(--xsm-space) var(--sm-space);
+            border-radius: var(--pill-radius);
+            transition: color 0.2s ease;
+        }
+
+        .primary-nav a:hover {
+            color: var(--accent);
+        }
+
+        .primary-nav a:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 4px;
+        }
+
+        /* Services layout */
+        .services-wrap {
+            padding-block: var(--xxl-space);
+        }
+
+        .services-heading {
+            text-align: center;
+            margin: 0 0 var(--xl-space);
+            font-size: var(--header-copy);
+            line-height: var(--header-lh);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: var(--xl-space);
+        }
+
+        .service-card {
+            background: var(--surface);
+            box-shadow: var(--inset-1);          /* valley */
+            border-radius: var(--med-radius);
+            padding: var(--xl-space);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            text-align: center;
+        }
+
+        .service-title {
+            margin: 0 0 var(--sm-space);
+            font-size: 1.5rem;
+            line-height: var(--header-lh);
+            color: var(--text);
+        }
+
+        .service-body {
+            margin: 0;
+            color: var(--muted);
+            line-height: var(--body-lh);
+            font-size: 1.5rem;
+        }
+
+        /* Mobile: stack nicely */
+        @media (max-width: 800px) {
+            .services-wrap {
+                padding-block: var(--xl-space);
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: var(--lg-space);
+            }
+            .service-card {
+                padding: var(--lg-space);
+            }
+        }
+    </style>
+</head>
+<body>
+<header class="site-header">
+    <div class="container">
+        <nav class="nav-bar">
+            <a href="index.html" class="brand">
+                <img src="assets/logo.png" alt="BredCrum" />
+            </a>
+            <div class="primary-nav">
+                <a href="index.html#work">work</a>
+                <a href="about.html">about</a>
+                <a href="services.html">services</a>
+                <a href="contact.html">contact</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main class="services-wrap">
+    <div class="container">
+        <h1 class="services-heading">Services</h1>
+
+        <section class="services-grid">
+            <article class="service-card">
+                <h2 class="service-title">Identity Design</h2>
+                <p class="service-body">
+                    Helping you translate your brand’s values and personality into a clear,
+                    systematic visual language that scales.
+                </p>
+            </article>
+
+            <article class="service-card">
+                <h2 class="service-title">Logo Design</h2>
+                <p class="service-body">
+                    Crafting memorable, distinctive marks tailored to your brand’s story,
+                    context, and real-world applications.
+                </p>
+            </article>
+
+            <article class="service-card">
+                <h2 class="service-title">Marketing Materials</h2>
+                <p class="service-body">
+                    Designing print and digital assets—decks, one-pagers, signage, collateral—
+                    that stay on-grid, on-brand, and easy to use.
+                </p>
+            </article>
+
+            <article class="service-card">
+                <h2 class="service-title">Web & Product UI</h2>
+                <p class="service-body">
+                    Building calm, intuitive interfaces and landing pages with token-driven
+                    systems so shipping stays fast and consistent.
+                </p>
+            </article>
+        </section>
+    </div>
+</main>
+</body>
+</html>

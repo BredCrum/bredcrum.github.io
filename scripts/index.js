@@ -43,9 +43,9 @@ function preloadOne(project, i) {
 
         const img = new Image();
         img.decoding = "async";
-        img.loading = "eager"; // we *do* want it now
+        img.loading = "eager";
         img.onload = () => { IMG_CACHE[key] = img; resolve(img); };
-        img.onerror = () => resolve(null); // fail soft
+        img.onerror = () => resolve(null);
         img.src = `/assets/${project}/${i}.png`;
     });
 }

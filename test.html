@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="stylesheets/tokens.css">
+</head>
+<body>
+<div class="content" style="display:grid;place-items:center;min-height:80svh;background:var(--bg);">
+  <span class="valley-text" data-text="A">A</span>
+</div></body>
+
+<style>
+
+  /* Valley text — uses your tokens */
+  .valley-text{
+    --valley-size: clamp(6rem, 18vw, 14rem);
+    --valley-light: color-mix(in srgb, #fff 78%, var(--surface) 22%);
+    --valley-dark: rgba(0,0,0,.18);
+    --valley-blur: .6px;          /* tiny blur softens the bevel */
+    --valley-offset-1: 1px;       /* first copy offset */
+    --valley-offset-2: 2px;       /* second, a touch deeper */
+
+    position: relative;
+    display: inline-block;
+    font: 800 var(--valley-size)/1 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    color: var(--surface);
+    text-shadow: none;
+  }
+
+  /* Two ghost copies: a bright top-left and a dark bottom-right */
+  .valley-text::before,
+  .valley-text::after{
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  /* bright rim (top/left) */
+  .valley-text::before{
+    color: var(--valley-light);
+    transform: translate(calc(var(--valley-offset-1) * -1), calc(var(--valley-offset-1) * -1));
+    filter: blur(var(--valley-blur));
+    opacity: .95;
+  }
+
+  /* dark rim (bottom/right) */
+  .valley-text::after{
+    color: var(--valley-dark);
+    transform: translate(var(--valley-offset-2), var(--valley-offset-2));
+    filter: blur(var(--valley-blur));
+    opacity: .9;
+  }
+
+  /* Optional: soft ambient around the whole letter (feels more “neumo”) */
+  .valley-text{
+    filter: drop-shadow(0 10px 24px rgba(0,0,0,.06));
+  }
+</style>
+</html>

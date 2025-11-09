@@ -39,7 +39,7 @@
     --lg-space: calc(var(--base-space)*8);
     --xl-space: calc(var(--base-space)*12);
     --xxl-space: calc(var(--base-space)*16);
-    --switch-col: 320px;
+    --switch-col: 180px;
 
     /*Type*/
     font-size: 16px;

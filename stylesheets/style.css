@@ -117,25 +117,13 @@ body {
 }
 
 .cta-btn:active {
-    box-shadow: var(--inset-1); /* pressed valley effect */
+    box-shadow: var(--inset-1);
     transform: translateY(1px);
 }
 
 .cta-btn:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 4px;
-}
-.work-section {
-    display: grid;
-    place-items: center;
-    padding-block: var(--xl-space);
-    margin: 0 auto;
-}
-
-.work-inner {
-    max-width: var(--container);
-    margin-inline: auto;
-    padding-inline: var(--med-space);
 }
 
 .work-heading {
@@ -148,8 +136,8 @@ body {
 /* Section frame (you already have .work-section / .work-inner; adding layout only) */
 .work-layout {
     display: grid;
-    grid-template-columns: var(--switch-col) 50vw var(--switch-col);
-    justify-content: center;         /* centers the entire grid */
+    grid-template-columns: 1fr 50vw 1fr;
+    justify-content: center;
     align-items: center;
     column-gap: var(--xxl-space);
     margin-inline: auto;
@@ -163,15 +151,14 @@ body {
     display: flex;
     flex-direction: column;
     gap: var(--sm-space);
-    align-items: stretch;
 }
 
 /* Bento valley placeholder stays centered in the middle column */
 .work-bento {
     background: var(--surface);
-    box-shadow: var(--inset-1);         /* valley */
-    border-radius: var(--lg-radius);    /* 24 */
-    padding: var(--xl-space);           /* 48 */
+    box-shadow: var(--inset-1);
+    border-radius: var(--lg-radius);
+    padding: var(--xl-space);
 }
 
 .switch-btn {
@@ -292,9 +279,31 @@ body {
 .project-arc .tile-5 img { object-position: 10% 50%; }
 
 .tile-6 {
-    padding: 1rem;
-    font-size: .75rem;
+    padding: var(--sm-space);
+    font-size: .85rem;
+    line-height: var(--body-lh);
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    /* scrolling setup */
+    overflow-y: auto;
+    max-height: 300px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0,0,0,.2) transparent;
 }
+
+.tile-6::-webkit-scrollbar {
+    width: 6px;
+}
+.tile-6::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,.2);
+    border-radius: var(--pill-radius);
+}
+.tile-6::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
 
 /* === 7-tile layout (5 rows × 6 cols) === */
 .tile-1 { grid-column: 1 / span 3; grid-row: 1 / span 3; }
@@ -592,4 +601,5 @@ body {
         object-fit: contain;
     }
 }
+
 
