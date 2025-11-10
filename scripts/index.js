@@ -46,7 +46,7 @@ function preloadOne(project, i) {
         img.loading = "eager";
         img.onload = () => { IMG_CACHE[key] = img; resolve(img); };
         img.onerror = () => resolve(null);
-        img.src = `/assets/${project}/${i}.png`;
+        img.src = `/assets/${project}/webp/${i}.webp`;
     });
 }
 

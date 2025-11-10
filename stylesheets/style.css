@@ -6,6 +6,7 @@ body {
     background: var(--bg);
     color: var(--text);
     font: 400 var(--body-copy)/var(--body-lh) system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    padding-inline: 5vw;
 }
 
 /* 12-col container behavior (flex here for the nav) */
