@@ -2,60 +2,71 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-  <link rel="stylesheet" href="stylesheets/tokens.css">
+    <title>Neumo Hill Icon</title>
+    <link rel="stylesheet" href="stylesheets/tokens.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body{
+            margin: 0;
+            background: var(--bg);
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+        }
+
+        .icon-wrap{
+            position: relative;
+            display: inline-block;
+            font-size: clamp(6rem, 14vw, 10rem);
+            line-height: 1;
+        }
+
+        .icon-wrap .layer{
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        /* base accent icon: sharp */
+        .icon-wrap .layer-base{
+            position: relative;
+            z-index: 3;
+            color: var(--accent);
+            scale: 95%;
+        }
+
+        /* light rim (top-left), using BG-based tint */
+        .icon-wrap .layer-dark{
+            z-index: 1;
+            color: #f8f8fa;
+            transform: translate(-5px, -9px);
+            filter: blur(0px);
+            /*opacity: 0.95;*/
+        }
+
+        /* dark rim (bottom-right), using BG-based shade */
+        .icon-wrap .layer-light{
+            z-index: 1;
+            color: color-mix(in srgb, var(--bg) 65%, #000000 35%);
+            transform: translate(5px, -5px);
+            filter: blur(3px);
+            opacity: 0.45;
+        }
+    </style>
 </head>
 <body>
-<div class="content" style="display:grid;place-items:center;min-height:80svh;background:var(--bg);">
-  <span class="valley-text" data-text="A">A</span>
-</div></body>
 
-<style>
+<div class="icon-wrap">
+    <i class="fa-solid fa-font layer layer-dark"></i>
+    <i class="fa-solid fa-font layer layer-light"></i>
+    <i class="fa-solid fa-font layer-base"></i>
+</div>
 
-  /* Valley text — uses your tokens */
-  .valley-text{
-    --valley-size: clamp(6rem, 18vw, 14rem);
-    --valley-light: color-mix(in srgb, #fff 78%, var(--surface) 22%);
-    --valley-dark: rgba(0,0,0,.18);
-    --valley-blur: .6px;          /* tiny blur softens the bevel */
-    --valley-offset-1: 1px;       /* first copy offset */
-    --valley-offset-2: 2px;       /* second, a touch deeper */
-
-    position: relative;
-    display: inline-block;
-    font: 800 var(--valley-size)/1 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-    color: var(--surface);
-    text-shadow: none;
-  }
-
-  /* Two ghost copies: a bright top-left and a dark bottom-right */
-  .valley-text::before,
-  .valley-text::after{
-    content: attr(data-text);
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-  }
-
-  /* bright rim (top/left) */
-  .valley-text::before{
-    color: var(--valley-light);
-    transform: translate(calc(var(--valley-offset-1) * -1), calc(var(--valley-offset-1) * -1));
-    filter: blur(var(--valley-blur));
-    opacity: .95;
-  }
-
-  /* dark rim (bottom/right) */
-  .valley-text::after{
-    color: var(--valley-dark);
-    transform: translate(var(--valley-offset-2), var(--valley-offset-2));
-    filter: blur(var(--valley-blur));
-    opacity: .9;
-  }
-
-  /* Optional: soft ambient around the whole letter (feels more “neumo”) */
-  .valley-text{
-    filter: drop-shadow(0 10px 24px rgba(0,0,0,.06));
-  }
-</style>
+</body>
 </html>
