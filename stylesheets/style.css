@@ -277,7 +277,7 @@ body {
     object-fit: contain;
     padding-right: 5rem;
 }
-.project-arc .tile-5 img { object-position: 10% 50%; }
+.project-arc .tile-5 img { left:50px; }
 
 .tile-6 {
     padding: var(--sm-space);
